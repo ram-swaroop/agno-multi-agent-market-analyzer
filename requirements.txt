@@ -1,0 +1,6 @@
+agno==1.6.3
+python-dotenv==1.1.0
+pytest==8.4.1
+ollama==0.5.1
+duckduckgo-search==8.0.4
+yfinance==0.2.63
