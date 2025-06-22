@@ -117,6 +117,25 @@ model_config = Gemini(id=os.getenv("GEMINI_MODEL"), provider="Google")
 Refer to the .env.example file for environment variable configuration details.
 - We have used `OLLAMA_MODEL=qwen2.5:3b` and `GEMINI_MODEL=gemini-2.0-flash` in our case.
 
+---
+
+## 📈 Example Outputs
+
+Want to see how this system responds to real-world queries?
+
+Check out:  
+[`examples/output_samples.md`](examples/output_samples.md)
+
+This includes responses from both:
+- Ollama `qwen2.5:3b`(local LLM via CPU)
+- Google Gemini `gemini-2.0-flash` (cloud-based via Free API Key)
+
+
+Sample queries include:
+- "How is Apple doing in the market?"
+- "Are electric vehicle companies performing well?"
+- "What are the trends in cryptocurrency?"
+
 
 ## 🧪 Continuous Integration
 
