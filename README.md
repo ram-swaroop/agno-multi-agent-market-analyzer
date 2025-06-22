@@ -4,7 +4,7 @@ This project uses a multi-agent system powered by [agno](https://pypi.org/projec
 
 - Web search via DuckDuckGo
 - Financial data from Yahoo Finance (yfinance)
-- LLM-powered coordination via Ollama
+- LLM-powered coordination via `Ollama` or `Google Gemini`
 
 ---
 
@@ -48,6 +48,13 @@ pip install -r requirements.txt
 # 2. Run analysis
 python main.py --query "What are the current trends in the semiconductor market?"
 
+## More Examples
+python main.py --query "How is Apple doing in the market?"
+python main.py --query "What's happening with banking stocks?"
+python main.py --query "Are electric vehicle companies performing well?"
+python main.py --query "What are the trends in cryptocurrency?"
+python main.py --query "How is the real estate market?"
+
 # 3. Run tests
 pytest
 ```
@@ -85,6 +92,32 @@ For consistent results, make sure to use the same version locally, in Docker, an
 
 ---
 
+## 🔧 Model Configuration
+This project supports two different LLM providers for its AI-powered analysis:
+
+### 1. Ollama Model (Local CPU):
+
+- Configured for local execution using Ollama on Windows systems.
+- To use this model, ensure the following line is uncommented in config/settings.py:
+
+```bash 
+model_config = Ollama(id=os.getenv("OLLAMA_MODEL"), provider="Ollama")
+```
+
+- Make sure to set the OLLAMA_MODEL variable in your .env file.
+### 2. Google Gemini Model:
+
+- Configured for cloud-based execution using Google AI Studio.
+- To use this model, uncomment and configure the following lines in config/settings.py:
+```bash
+os.environ["GOOGLE_API_KEY"] = os.getenv("GEMINI_API_KEY")
+model_config = Gemini(id=os.getenv("GEMINI_MODEL"), provider="Google")
+```
+- Ensure your .env file contains the GEMINI_API_KEY and GEMINI_MODEL variables.
+Refer to the .env.example file for environment variable configuration details.
+- We have used `OLLAMA_MODEL=qwen2.5:3b` and `GEMINI_MODEL=gemini-2.0-flash` in our case.
+
+
 ## 🧪 Continuous Integration
 
 GitHub Actions will:
@@ -102,3 +135,5 @@ MIT
 ## 🔗 References
 
 [AI Agents in 5 Levels of Difficulty (with Full Code Implementation)](https://medium.com/data-science-collective/ai-agents-in-5-levels-of-difficulty-with-full-code-implementation-15d794becfb8) 
+
+
