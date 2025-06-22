@@ -15,7 +15,6 @@ venv/
 
 # IDE settings
 .vscode/
-.idea/
 
 # Jupyter
 .ipynb_checkpoints/
