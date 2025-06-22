@@ -7,6 +7,10 @@ This project uses a multi-agent system powered by [agno](https://pypi.org/projec
 - LLM-powered coordination via `Ollama` or `Google Gemini`
 
 ---
+## 🧠 How It Works – High-Level Framework
+![alt text](docs/agno-market-analyzer.png)
+
+---
 
 ## 📁 Project Structure
 
