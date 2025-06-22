@@ -1,21 +1,21 @@
 from agno.agent import Agent
-from agno.models.ollama import Ollama
 from agno.tools.duckduckgo import DuckDuckGoTools
-from config.settings import OLLAMA_MODEL
+from config.settings import model_config
 
-model_config = Ollama(id=OLLAMA_MODEL, provider="Ollama")
 
 web_agent = Agent(
     name="Web Agent",
-    role="Search for news, insights, and market trends based on user queries",
+    role="Search for news, insights, and market trends based on user query",
     model=model_config,
     tools=[DuckDuckGoTools()],
     instructions=[
-        "If the user query is vague, identify and summarize major trends in the market",
-        "If specific topics, industries, or companies are mentioned, focus the search on those",
-        "Use authoritative sources and include publication dates and URLs",
-        "Capture both current sentiment and factual data where possible",
-        "Adjust your search strategy based on how broad or narrow the question is"
+        "Search based on user query and provide relevant insights",
+        "Prioritize recent news (last 3–6 months)",
+        "If companies are mentioned, focus on news about them",
+        "If industries are mentioned, summarize key market trends and players",
+        "If no specifics, summarize general market sentiment",
+        "Highlight important data points, dates, companies, and sources",
+        "Summarize findings clearly to help finance agent analyze further"
     ],
     show_tool_calls=True,
     markdown=True

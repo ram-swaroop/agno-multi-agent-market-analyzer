@@ -1,30 +1,25 @@
 from agno.team import Team
-from agno.models.ollama import Ollama
 from agents.web_agent import web_agent
 from agents.finance_agent import finance_agent
-from config.settings import OLLAMA_MODEL
-
-model_config = Ollama(id=OLLAMA_MODEL, provider="Ollama")
+from config.settings import model_config
 
 agent_team = Team(
     mode="coordinate",
     members=[web_agent, finance_agent],
     model=model_config,
     success_criteria=[
-        "Relevant market context and financial data based on user's intent",
-        "Specific details if the query targets companies or sectors",
-        "General overviews if the query is open-ended",
-        "Balanced report with qualitative and quantitative insights",
-        "All claims backed by data and sources"
+        "Combined market context and financial insights",
+        "Relevant web research and accurate financial analysis",
+        "Answer reflects user's original intent clearly and fully"
     ],
     instructions=[
-        "Adapt analysis based on the user's question — whether broad or narrow",
-        "Web agent should gather market trends and sentiment",
-        "Finance agent should provide data-driven insights on mentioned companies or sectors",
-        "Merge both outputs into a clear and cohesive market summary",
-        "Ensure relevance, clarity, and traceability to sources"
+        "Determine whether the query is about companies, sectors, or general trends",
+        "Have Web Agent find relevant market context and entities",
+        "Have Finance Agent analyze financials for those entities",
+        "Merge findings into a cohesive, insightful response",
+        "Ensure balance between qualitative and quantitative insights"
     ],
     show_tool_calls=True,
     markdown=True,
-    reasoning_max_steps=5
+    reasoning_max_steps=8
 )
