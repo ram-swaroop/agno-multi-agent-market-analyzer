@@ -1,6 +1,6 @@
 # 📊 Market Analyzer
 
-This project uses LangGraph-compatible agents from [`agno`](https://pypi.org/project/agno/) to analyze market and financial trends using:
+This project uses a multi-agent system powered by [agno](https://pypi.org/project/agno/) to analyze real-time market and financial trends using:
 
 - Web search via DuckDuckGo
 - Financial data from Yahoo Finance (yfinance)
@@ -98,3 +98,7 @@ Workflow config is located in `.github/workflows/ci.yml`.
 ## 📄 License
 
 MIT
+
+## 🔗 References
+
+[AI Agents in 5 Levels of Difficulty (with Full Code Implementation)](https://medium.com/data-science-collective/ai-agents-in-5-levels-of-difficulty-with-full-code-implementation-15d794becfb8) 
