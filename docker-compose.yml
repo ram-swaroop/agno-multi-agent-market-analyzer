@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  multi-agent:
+    build: .
+    environment:
+      - OLLAMA_MODEL=qwen2.5:3b
+    volumes:
+      - .:/app
+    command: python main.py
